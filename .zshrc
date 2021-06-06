@@ -61,7 +61,7 @@ if [ "x$TMUX" != "x" ]; then
 fi
 
 # rbenv
-if [ -d "~/.rbenv" ]; then
+if [ -d $HOME/.rbenv ]; then
 	export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 	eval "$(rbenv init -)"
 fi
