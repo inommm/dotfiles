@@ -501,7 +501,7 @@ endif
 
 " FileTypes Definition
 au BufRead,BufNewFile *.txt                           setl filetype=text
-au BufRead,BufNewFile *.rb                            setl filetype=ruby
+au BufRead,BufNewFile *.rb,*.json.jb                  setl filetype=ruby
 au BufRead,BufNewFile *.erb                           setl filetype=eruby
 au BufRead,BufNewFile *.md,*.markdown,*.md.*          setl filetype=markdown
 au BufRead,BufNewFile *.go                            setl filetype=go
