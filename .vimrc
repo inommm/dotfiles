@@ -44,8 +44,9 @@ Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 Plug 'mattn/vim-goimports'
 Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
-Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
-Plug 'HerringtonDarkholme/yats.vim',           { 'for': 'typescript' }
+"Plug 'jason0x43/vim-js-indent',                { 'for': ['javascript', 'typescript', 'html'] }
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'Rykka/riv.vim',                          { 'for': 'rst' }
 Plug 'othree/html5.vim',                       { 'for': 'html' }
@@ -551,6 +552,10 @@ au FileType coffeescript setl sw=2 sts=2 ts=2 et
 " TypeScript
 au FileType typescript setl sw=2 sts=2 ts=2 et
 let g:js_indent_typescript=1
+
+" TypeScript (React)
+au FileType typescriptreact setl sw=2 sts=2 ts=2 et
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Yaml
 au FileType yaml setl sw=2 sts=2 ts=2 et
