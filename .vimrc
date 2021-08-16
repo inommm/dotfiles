@@ -300,6 +300,7 @@ let $FZF_DEFAULT_OPTS  = '--reverse'
 " vim-rooter
 let g:rooter_disable_map  = 1
 let g:rooter_silent_chdir = 1
+let g:rooter_patterns     = ['.git', '.hg', '.svn']
 
 " lightline
 if s:is_plugged('lightline.vim')
