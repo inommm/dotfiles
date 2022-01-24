@@ -79,11 +79,17 @@ if [ -x $(which go 2> /dev/null) ]; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
+
+# Rust
+if [ -d $HOME/.cargo ]; then
+	source $HOME/.cargo/env
+fi
+
 # kubectl
 if [ -x "`which kubectl 2>/dev/null`" ]; then
 		alias k='kubectl'
 		source <(kubectl completion zsh)
-		complete -o default -F __start_kubectl k
+		compdef __start_kubectl k
 fi
 
 if [ "x$(uname)" = "xDarwin" ]; then

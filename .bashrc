@@ -134,3 +134,4 @@ if [ -x $(which colordiff 2> /dev/null) ]; then
 else
 	alias diff='diff -u'
 fi
+. "$HOME/.cargo/env"
