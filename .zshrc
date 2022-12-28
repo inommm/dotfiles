@@ -72,13 +72,22 @@ if [ -d $HOME/.nodenv ]; then
 	eval "$(nodenv init -)"
 fi
 
-# Go
-export PATH=$PATH:/usr/local/go/bin
-if [ -x $(which go 2> /dev/null) ]; then
-	export GOPATH=$HOME/go
-	export PATH=$PATH:$GOPATH/bin
+# tfenv
+if [ -d $HOME/.tfenv ]; then
+	export PATH="$HOME/.tfenv/bin:$PATH"
+
+	eval "$(nodenv init -)"
 fi
 
+# Go
+if [ -d $HOME/.goenv ]; then
+  export GOPATH=$HOME/go
+  export GOENV_ROOT=$HOME/.goenv
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)"
+  export PATH="$GOROOT/bin:$PATH"
+  export PATH="$PATH:$GOPATH/bin"
+fi
 
 # Rust
 if [ -d $HOME/.cargo ]; then
