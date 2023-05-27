@@ -60,42 +60,13 @@ if [ "x$TMUX" != "x" ]; then
 	rename_tmux_window_name "$(current_dir_name)"
 fi
 
-# rbenv
-if [ -d $HOME/.rbenv ]; then
-	export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-	eval "$(rbenv init -)"
-fi
-
-# nodenv
-if [ -d $HOME/.nodenv ]; then
-	export PATH=$HOME/.nodenv/bin:$PATH
-	eval "$(nodenv init -)"
-fi
-
-# tfenv
-if [ -d $HOME/.tfenv ]; then
-	export PATH="$HOME/.tfenv/bin:$PATH"
-
-	eval "$(nodenv init -)"
-fi
-
-# Go
-if [ -d $HOME/.goenv ]; then
-  export GOPATH=$HOME/go
-  export GOENV_ROOT=$HOME/.goenv
-  export PATH="$GOENV_ROOT/bin:$PATH"
-  eval "$(goenv init -)"
-  export PATH="$GOROOT/bin:$PATH"
-  export PATH="$PATH:$GOPATH/bin"
-fi
-
-# Rust
-if [ -d $HOME/.cargo ]; then
-	source $HOME/.cargo/env
+# asdf
+if type asdf > /dev/null 2>&1; then
+	. $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 # kubectl
-if [ -x "`which kubectl 2>/dev/null`" ]; then
+if type kubectl > /dev/null 2>&1; then
 		alias k='kubectl'
 		source <(kubectl completion zsh)
 		compdef __start_kubectl k
