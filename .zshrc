@@ -63,6 +63,10 @@ fi
 # asdf
 if type asdf > /dev/null 2>&1; then
 	. $(brew --prefix asdf)/libexec/asdf.sh
+
+	if test -e ~/.asdf/plugins/golang/set-env.zsh; then
+		. ~/.asdf/plugins/golang/set-env.zsh
+	fi
 fi
 
 # kubectl
