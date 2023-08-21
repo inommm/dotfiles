@@ -60,14 +60,9 @@ if [ "x$TMUX" != "x" ]; then
 	rename_tmux_window_name "$(current_dir_name)"
 fi
 
-# asdf
-if type asdf > /dev/null 2>&1; then
-	. $(brew --prefix asdf)/libexec/asdf.sh
-
-	if test -e ~/.asdf/plugins/golang/set-env.zsh; then
-		export ASDF_GOLANG_MOD_VERSION_ENABLED=true
-		. ~/.asdf/plugins/golang/set-env.zsh
-	fi
+# rtx
+if type rtx > /dev/null 2>&1; then
+	eval "$(rtx activate zsh)"
 fi
 
 # kubectl
