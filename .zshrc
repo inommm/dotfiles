@@ -60,9 +60,9 @@ if [ "x$TMUX" != "x" ]; then
 	rename_tmux_window_name "$(current_dir_name)"
 fi
 
-# rtx
-if type rtx > /dev/null 2>&1; then
-	eval "$(rtx activate zsh)"
+# mise
+if type mise > /dev/null 2>&1; then
+	eval "$(mise activate zsh)"
 fi
 
 # kubectl
